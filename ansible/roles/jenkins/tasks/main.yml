@@ -1,0 +1,46 @@
+- name: Install add-apt-repostory
+  become: yes
+  apt: name=software-properties-common state=latest
+
+- name: Add Oracle Java Repository
+  become: yes
+  apt_repository: repo='ppa:webupd8team/java'
+
+- name: Accept Java 8 License
+  become: yes
+  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+- name: Install Oracle Java 8
+  become: yes
+  apt: name={{item}} state=latest
+  with_items:
+    - oracle-java8-installer
+    - ca-certificates
+    - oracle-java8-set-default
+
+- name: add jenkins apt key
+  shell: "cd /tmp && wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -"
+  args:
+    warn: no
+  changed_when: false
+
+- name: add jenkins repository
+  apt_repository:
+    repo: "deb https://pkg.jenkins.io/debian-stable binary/"
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: install jenkins
+  apt:
+    name: jenkins
+    state: present
+  become: yes
+
+- name: Restart service jenkins
+  service:
+      name: jenkins
+      state: restarted
+
+- name : copy initadminpasswd
+  shell : "cat /var/lib/jenkins/secrets/initialAdminPassword > /home/ubuntu/initialAdminPassword"

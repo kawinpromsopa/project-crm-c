@@ -1,0 +1,56 @@
+{
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "region": "ap-southeast-1",
+        "source_ami_filter": {
+            "filters": {
+                "name": "*ubuntu-xenial-16.04-amd64-server-*",
+                "root-device-type": "ebs",
+                "virtualization-type": "hvm"
+            },
+            "most_recent": true,
+            "owners": [
+                "099720109477"
+            ]
+        },
+        "instance_type": "t2.nano",
+        "associate_public_ip_address": true,
+        "ssh_username": "ubuntu",
+        "ami_name": "packer-ubuntu16-{{isotime \"2006-01-02-1504\"}}",
+        "ami_description": "Ubuntu 16.04 docker",
+        "ami_users": ["805515623123", "826057481178"],
+        "ami_block_device_mappings": [
+          {
+            "device_name": "/dev/sdb",
+            "no_device": "true"
+          },
+          {
+            "device_name": "/dev/sdc",
+            "no_device": "true"
+          }
+        ],
+        "snapshot_users": ["805515623123", "826057481178"],
+        "tags": {
+            "Name": "packer-ubuntu16-{{isotime \"2006-01-02-1504\"}}",
+            "SourceAMI": "{{.SourceAMI}}"
+        }
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "shell",
+        "inline": [
+          "sleep 60 # to avoid unattended updates see https://github.com/geerlingguy/packer-ubuntu-1604/issues/7"
+        ]
+      },
+      {
+        "type": "ansible",
+        "playbook_file": "../ansible/jenkins_ami.yml",
+        "groups": ["base_ami"],
+        "extra_arguments": [
+          "--extra-vars", "ansible_python_interpreter=/usr/bin/python3 building_ami=True"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,7 @@
+- hosts: base_ami
+  roles:
+    - base_ami
+    - awscli
+    - docker
+    - jenkins
+
