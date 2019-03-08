@@ -1,4 +1,4 @@
-- hosts: worker
+- hosts: all
   roles:
     - nginx
   
