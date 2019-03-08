@@ -1,2 +1,2 @@
-[jenkins]
-jenkins ansible_ssh_host=3.0.95.64 ansible_ssh_port=22 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3
+[worker]
+worker ansible_ssh_host=54.254.139.151 ansible_ssh_port=22 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3
