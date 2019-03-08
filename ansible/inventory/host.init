@@ -1,2 +1,2 @@
 [all]
-worker ansible_ssh_host=54.254.139.151 ansible_ssh_port=22 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3
+worker ansible_ssh_host=54.254.139.151 ansible_ssh_port=22 # ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3
