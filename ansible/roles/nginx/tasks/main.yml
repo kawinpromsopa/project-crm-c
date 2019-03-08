@@ -1,6 +1,3 @@
----
-- hosts: worker
-  tasks:
     - name: copy the nginx config file
       copy:
         src: ./roles/nginx/templates/customer_name.conf.j2
