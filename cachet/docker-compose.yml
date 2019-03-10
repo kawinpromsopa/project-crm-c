@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  ${customer_name}:
+  ${cachetname}:
     image: postgres:9.5
     volumes:
       - /var/lib/postgresql/data
@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     restart: always
-  ${customer_name}:
+  ${cachetname}:
     build:
       context: .
       args:
@@ -17,7 +17,7 @@ services:
     ports:
       - ${nginx_port}:${nginx_port}
     links:
-      - ${customer_name}:${customer_name}
+      - ${cachetname}:${cachetname}
     environment:
       - DB_DRIVER=pgsql
       - DB_HOST=postgres
@@ -30,5 +30,5 @@ services:
       - APP_LOG=errorlog
       - DEBUG=false
     depends_on:
-      - ${customer_name}
+      - ${cachetname}
     restart: on-failure
