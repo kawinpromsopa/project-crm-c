@@ -41,11 +41,11 @@
 # - name: reset ssh connection
 #   meta: reset_connection
 
-- name: kill open ssh sessions
-  shell: "ps -ef | grep sshd | grep `whoami` | awk '{print \"kill -9\", $2}' | sh"
-  when: add_user_to_group is changed
-  failed_when: false
-  ignore_errors: true
+# - name: kill open ssh sessions
+#   shell: "ps -ef | grep sshd | grep `whoami` | awk '{print \"kill -9\", $2}' | sh"
+#   when: add_user_to_group is changed
+#   failed_when: false
+#   ignore_errors: true
 
 - name: download docker-compose
   get_url:
