@@ -2,7 +2,6 @@
   git:
     repo: "{{ git_repo }}"
     dest: /home/ubuntu/{{ customer_name }}
-    # accept_hostkey: yes
-    # key_file: /var/www/.ssh/deploy_key
-  become_user: www-data
+    accept_hostkey: yes
+    key_file: /home/ubuntu/.ssh/id_rsa.pub
 
