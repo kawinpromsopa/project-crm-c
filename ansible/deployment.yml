@@ -1,3 +1,6 @@
 - hosts: all
   roles:
-    - nginx_new
+    - nginx
+  vars:
+    customer_name: "{{ customer_name }}"
+    nginx_port: "{{ nginx_port }}"
