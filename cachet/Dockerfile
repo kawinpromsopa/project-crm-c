@@ -1,6 +1,6 @@
 FROM nginx:1.13.9-alpine
 
-expose ${nginx_port}
+expose {{ nginx_port }}
 CMD ["/sbin/entrypoint.sh"]
 
 ARG cachet_ver
