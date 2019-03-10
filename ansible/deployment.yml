@@ -1,5 +1,7 @@
+# - include: variables.yml
 - hosts: all
   roles:
     - nginx
-  
-
+  # vars:
+  #   customer_name: "{{ customer_name }}"
+  #   nginx_port: "{{ nginx_port }}"

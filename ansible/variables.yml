@@ -1,0 +1,10 @@
+- name: find customer instances
+  hosts: localhost
+  tasks:
+    - instance:
+        customer: "{{ customer }}"
+        region: "{{ region }}"
+        type: "http_server"
+        status: running
+        action: find
+      register: http
