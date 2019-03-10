@@ -1,0 +1,8 @@
+- name: Clone repo cachet apps
+  git:
+    repo: "{{ git_repo }}"
+    dest: /home/ubuntu/{{ customer_name }}
+    # accept_hostkey: yes
+    # key_file: /var/www/.ssh/deploy_key
+  become_user: www-data
+

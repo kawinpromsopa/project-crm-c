@@ -1,6 +1,7 @@
 - hosts: all
   roles:
     - nginx
+    - cachet
   vars:
     customer_name: "{{ customer_name }}"
     nginx_port: "{{ nginx_port }}"
