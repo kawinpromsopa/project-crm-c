@@ -1,6 +1,3 @@
 - hosts: all
   roles:
     - nginx
-  vars:
-    customer_name: "aaa"
-    nginx_port: "444"
