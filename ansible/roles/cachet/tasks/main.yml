@@ -43,7 +43,7 @@
 
 - name: Paste DOCKERFILE
   template:
-    src: ./roles/cachet/templates/docke.file.j2
+    src: ./roles/cachet/templates/docker.file.j2
     dest: /home/ubuntu/{{ customer_name }}/cachet/Dockerfile
     owner: ubuntu
     group: ubuntu
