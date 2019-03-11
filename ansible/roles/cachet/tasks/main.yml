@@ -150,6 +150,4 @@
   template:
     src: ./roles/cachet/templates/nginx.conf.j2
     dest: /home/ubuntu/{{ customer_name }}/cachet/conf/nginx-site.conf
-    owner: ubuntu
-    group: ubuntu
-    become: yes
+  become: yes
