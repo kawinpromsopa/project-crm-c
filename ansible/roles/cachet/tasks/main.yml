@@ -41,3 +41,8 @@
             - {{ customer_name }}-postgres
           restart: on-failure
 
+- name: Paste NGINX config files
+  template:
+    src: ./roles/cachet/templates/nginx.conf.j2
+    dest: /home/ubuntu/{{ customer_name }}/cachet/conf/nginx-site.conf
+  become: yes
