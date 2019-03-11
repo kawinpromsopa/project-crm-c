@@ -5,11 +5,11 @@
 
 - name: Create docker-compose file
   copy:
-    dest: /home/ubuntu/{{ customer_name }}/compose.yml
+    dest: /home/ubuntu/{{ customer_name }}/cachet/docker-compose.yml
     content: |
       version: "3"
       services:
-        {{ customer_name }}:
+        {{ customer_name }}-postgres:
           image: postgres:9.5
           volumes:
             - /var/lib/postgresql/data
@@ -17,15 +17,15 @@
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
           restart: always
-        cachet:
+        {{ customer_name }}-cachet:
           build:
             context: .
             args:
               - cachet_ver=v2.3.15
           ports:
-            - ${nginx_port}:${nginx_port}
+            - {{ nginx_port }}:{{ nginx_port }}
           links:
-            - postgres:postgres
+            - {{ customer_name }}-postgres:{{ customer_name }}-postgres
           environment:
             - DB_DRIVER=pgsql
             - DB_HOST=postgres
@@ -38,6 +38,6 @@
             - APP_LOG=errorlog
             - DEBUG=false
           depends_on:
-            - postgres
+            - {{ customer_name }}-postgres
           restart: on-failure
 
