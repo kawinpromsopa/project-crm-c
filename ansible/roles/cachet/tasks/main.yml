@@ -148,7 +148,7 @@
 
 - name: Create nginx-site.conf file
   copy:
-    dest: /home/ubuntu/{{ customer_name }}/cachet/docker-compose.yml
+    dest: /home/ubuntu/{{ customer_name }}/cachet/conf/nginx-site.conf
     content: |
       server {
           listen {{ nginx_port }} default; ## Listen for ipv4; this line is default and implied
