@@ -3,7 +3,9 @@
 
 * Pull a repository to and Change environment server info want to deploy IN `project-crm-c/ansible/inventory/host.init` then push to change this:
 
-    ```<HOSTNAME> ansible_ssh_host=<YOUR_IP_SERVER> ansible_ssh_port=<PORT> ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3```
+```
+<HOSTNAME> ansible_ssh_host=<YOUR_IP_SERVER> ansible_ssh_port=<PORT> ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3
+```
 
 * The repository is private you must to generate rsa_key on jenkins server to and added in your github setting > SSH and GPG keys > New SSH Key
 
