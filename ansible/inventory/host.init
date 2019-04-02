@@ -1,2 +1,5 @@
 [all]
 worker ansible_ssh_host=13.229.197.231 ansible_ssh_port=22 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3
+
+test1=$BAR
+test2={$BAR}
