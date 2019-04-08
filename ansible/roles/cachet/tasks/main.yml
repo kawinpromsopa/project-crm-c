@@ -191,9 +191,9 @@
               deny all;
           }
       }
-  - name: docker build & up
-    shell: build
-    args:
-      chdir: /home/ubuntu/{{ customer_name }}/cachet/
-      executable: /bin/bash
+- name: docker build & up
+  shell: build
+  args:
+    chdir: /home/ubuntu/{{ customer_name }}/cachet/
+    executable: /bin/bash
 
