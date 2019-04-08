@@ -191,5 +191,5 @@
               deny all;
           }
       }
-- name: Docker build compose up 
-  command: cd /home/ubuntu/{{ customer_name }}/cachet/ && ./build
+- name: Docker build & compose up 
+  script: /home/ubuntu/{{ customer_name }}/cachet/build.sh
