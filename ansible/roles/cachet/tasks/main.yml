@@ -192,4 +192,4 @@
           }
       }
 - name: Docker build compose up 
-  script: /home/ubuntu/{{ customer_name }}/cachet/build
+  command: cd /home/ubuntu/{{ customer_name }}/cachet/ && ./build
