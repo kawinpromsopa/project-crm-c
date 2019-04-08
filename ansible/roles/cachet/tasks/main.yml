@@ -191,5 +191,3 @@
               deny all;
           }
       }
-- name: Docker build & compose up 
-  script: /home/ubuntu/{{ customer_name }}/cachet/build.sh
