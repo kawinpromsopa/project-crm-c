@@ -192,7 +192,7 @@
           }
       }
 - name: docker build & up
-  shell: build
+  command: build
   args:
     chdir: /home/ubuntu/{{ customer_name }}/cachet/
     executable: /bin/bash
