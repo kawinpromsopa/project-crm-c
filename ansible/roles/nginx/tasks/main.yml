@@ -4,6 +4,9 @@
     dest: /etc/nginx/conf.d/{{ customer_name }}.conf
   become: yes
 
+- name: Nginx reload
+  command: nginx -s reload
+  
 #- name: create symlink
 #   file:
 #     src: /etc/nginx/sites-available/static_site.cfg
@@ -11,8 +14,8 @@
 #     state: link
 #   become: yes
 
-- name: restart nginx
-  service:
-   name: nginx
-   state: restarted
-  become: yes
+# - name: restart nginx
+#   service:
+#    name: nginx
+#    state: restarted
+#   become: yes
