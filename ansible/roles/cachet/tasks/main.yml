@@ -122,6 +122,11 @@
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
           restart: always
+          logging:
+            driver: "json-file"
+            options:
+              max-size: "5m"
+              max-file: "2"
         {{ customer_name }}-cachet:
           build:
             context: .
