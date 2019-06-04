@@ -1,4 +1,4 @@
-#### How to setup jenkins for automation deployment scritps
+#### How to setup jenkins for automation deployment scritps.
 
 
 * Pull a repository to and Change environment server info want to deploy IN `project-crm-c/ansible/inventory/host.init` then push to change this:
